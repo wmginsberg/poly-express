@@ -1,18 +1,19 @@
 // Node.js notation for importing packages
 var express = require('express');
-var path = require('path');
 
 // Spin up a server
 var app = express();
 
 
-// Serve static files from the /client/ directory
-// app.use(express.static(path.join(__dirname, 'client')));
+// Serve static files from the main directory
 app.use(express.static(__dirname));
 
 
-// Send 'Hello World' to the main page
-
+//  ____________________________________
+// |                                    |
+// |       Setting up Page Routes       |
+// |____________________________________|
+//
 
 app.get('/', function(req, res){
     res.sendFile("index.html", {root: '.'});
@@ -36,7 +37,6 @@ app.listen(3000, function () {
 });
 
 
-  //res.render("index.html");
 
 // add polymer.json where root == public
 // add .bowerrc
