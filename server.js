@@ -6,7 +6,7 @@ var app = express();
 
 
 // Serve static files from the main directory
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/build/bundled'));
 
 
 //  ____________________________________
@@ -15,19 +15,7 @@ app.use(express.static(__dirname));
 // |____________________________________|
 //
 
-app.get('/', function(req, res){
-    res.sendFile("index.html", {root: '.'});
-});
-
-app.get('/view1', function(req, res){
-    res.sendFile("index.html", {root: '.'});
-});
-
-app.get('/view2', function(req, res){
-    res.sendFile("index.html", {root: '.'});
-});
-
-app.get('/view3', function(req, res){
+app.get('*', function(req, res){
     res.sendFile("index.html", {root: '.'});
 });
 
@@ -35,11 +23,3 @@ app.get('/view3', function(req, res){
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
-
-
-
-// add polymer.json where root == public
-// add .bowerrc
-// send all routes to index.html
-// correspondence between client and server 
-// highlight absolute urls to bower_components 
